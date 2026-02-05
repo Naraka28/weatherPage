@@ -6,25 +6,65 @@
     <title>Rehtaew</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <header>
-      <nav aria-label="Main navigation"></nav>
-    </header>
-    <main>
-      <section>
-        <article id="current" class=""></article>
-      </section>
-      <section>
-        <article id="forecast"></article>
-      </section>
-      <p>
-        Powered by
-        <a href="https://www.weatherapi.com/" title="Free Weather API"
-          >WeatherAPI.com</a
+  <body class="min-h-screen flex bg-gradient-to-br from-slate-100 to-slate-200">
+    <aside class="w-64 bg-white/80 backdrop-blur shadow-sm p-4">
+      <h2 class="font-semibold text-sm mb-4">Ubicaciones guardadas</h2>
+
+      <div id="savedCities" class="space-y-1"></div>
+
+      <button
+        id="clearCities"
+        class="mt-6 text-xs text-red-500 hover:underline"
+      >
+        Limpiar lista
+      </button>
+    </aside>
+
+    <div class="flex-1">
+      <header class="sticky top-0 z-50 backdrop-blur bg-white/70 shadow-sm">
+        <nav
+          class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
         >
-      </p>
-    </main>
-    <footer>&COPY;</footer>
+          <div class="flex items-center gap-3">
+            <span class="font-semibold text-lg tracking-tight text-gray-800">
+              Rehtaew
+            </span>
+          </div>
+
+          <div class="text-sm text-gray-500">Weather Dashboard</div>
+        </nav>
+      </header>
+      <main>
+        <form id="searchForm" class="flex gap-2 justify-center mt-6">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search city..."
+            class="border rounded px-3 py-2 w-64"
+            required
+          />
+          <button class="bg-indigo-500 text-white px-4 py-2 rounded">
+            Buscar
+          </button>
+        </form>
+
+        <section>
+          <article id="current"></article>
+        </section>
+
+        <section>
+          <article id="forecast"></article>
+        </section>
+      </main>
+
+      <footer class="text-center text-sm text-gray-600 py-6">
+        Powered by
+        <a href="https://www.weatherapi.com/" class="text-indigo-600">
+          WeatherAPI.com
+        </a>
+      </footer>
+    </div>
+
     <script type="module" src="main.js"></script>
   </body>
 </html>
