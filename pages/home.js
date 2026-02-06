@@ -16,7 +16,6 @@ export async function renderHomePage() {
 
     try {
       const data = await getForecastWeather(city);
-      console.log(data);
 
       weatherForecastCard(data);
     } catch (err) {
